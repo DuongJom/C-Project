@@ -1,7 +1,8 @@
 #include<fstream>
 #include<iostream>
 #define fi "input.txt"
-#define fo "output.txt"
+#define fo1 "output1.txt"
+#define fo2 "output2.txt"
 using namespace std;
 
 void hienThi(float* a, int n);
@@ -48,6 +49,13 @@ void chenViTriK(float* a, int& n, float &x, int &k) {
 	for (int i = n - 1; i > k; i--)
 		a[i] = a[i - 1];
 	a[k] = x;
+	fstream out;
+	out.open(fo1,ios::out);
+	out << k << endl<<n<<endl;
+	for (int i = 0; i < n; i++) {
+		out << a[i] << " ";
+	}
+	out.close();
 }
 
 void xoaPT(float* a, int& n, int pos) {
@@ -74,7 +82,7 @@ void xoaAm(float* a, int &n) {
 		}
 	}
 	fstream out;
-	out.open(fo, ios::out);
+	out.open(fo2, ios::out);
 	out << n<<endl;
 	for (int i = 0; i < m; i++) {
 		out << b[i]<<" ";
